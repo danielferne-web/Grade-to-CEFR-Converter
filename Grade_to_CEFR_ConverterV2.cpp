@@ -54,7 +54,7 @@ int main() {
 	double getValidGrade() {
 		double g;
 		cout << "Introduceti nota elevului: "; cin >> g;
-		while (g < 1 || g>10) { // func?ia while invalideaza notele din afara intervalului 1-10
+		while (g < 1 || g>10) { // funcția while invalideaza notele din afara intervalului 1-10
 			cout << "Nota este invalida! Nota trebuie sa fie intre 1 si 10."; cin >> g;
 		    }	
 		return g;
@@ -100,13 +100,13 @@ int main() {
 		// functia switch va decide in functie de nivelul de limba L1 sau L2 care caz caz va rula (1 sau 2)
 		switch (l) {
 		case 1:
-			//func?ia if solicita introducerea notei daca elevul este de nivel 1
+			//funcția if solicita introducerea notei daca elevul este de nivel 1
 			g = getValidGrade();
 			convertMiddleL1(g); // apelez functia pentru transferarea notei in calificativ
 			break;
 
 		case 2:
-			//func?ia if solicita introducerea notei daca elevul este de nivel 2
+			//funcția if solicita introducerea notei daca elevul este de nivel 2
 			g = getValidGrade();
 			convertMiddleL2(g); // apelez functia pentru transferarea notei in calificativ
 			break;
