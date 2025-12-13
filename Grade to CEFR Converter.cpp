@@ -1,9 +1,10 @@
 // Grade to CEFR Converter.cpp : This file contains the 'main' function. Program execution begins and ends there.
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
-
+// declararea functiilor
 int getValidClass(); // functia valideaza clasa pentru a se incadra intre 1 si 12
 double getValidGrade(); // functia valideaza nota sa fie intre 1 si 10
 int getValidLanguageLevel (); // functia valideaza limba de studiu a elevilor de gimnaziu (L1 sau L2)
@@ -15,7 +16,7 @@ void ProcessHighSchool (double g); // functia echivaleaza notele elevilor de lic
 
 
 int main() {
-	// declaram si initializam characterele si numerele cu care lucram
+	// declaram variabilele 
 	int c; // clasa (I-XII)
 	int l; // nivelul de limba la clasele de gimnaziu
 	double g; // nota elevului
@@ -72,24 +73,32 @@ int main() {
 
 // vreau sa incadreze elevul in grupa de notare si evaluare a elevului in grila corespunzatoare
 	void ProcessPrimarySchool(double g) {
+		const int(W1) = 10; // constanta pentru alinierea textului in consola
+		const int(W2) = 10;	// constanta pentru alinierea textului in consola
+		const int(W3) = 10;	// constanta pentru alinierea textului in consola	
+
+		cout << "\n ============ Primary School Grading =================\n";
+		cout << " " << left << setw (W1) << "Nota" << left << setw (W2) << "->" << left << setw(W2) << "CEFR" << left << setw(W3) << "->" << left << setw(W3) << "Interpretare" << "\n";
+		cout << " =====================================================\n";
 
 		if (g >= 1 && g < 3) {		// incadreaza nota intr-un nivel corespunzator grilei si o interpreteaza  
-			cout << g << "\t-> Below A1" << "\t Nivel foarte scazut" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "Below A1" << left << setw(W3) << "->" << left << setw(W3) << "Foarte Scazut" << "\n";
 		}
 		else if (g >= 3 && g < 5) {
-			cout << g << "\t-> A1-" << "\t Incepator emergent" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "A1-" << left << setw(W3) << "->" << left << setw(W3) << "Incepator Emergent" << "\n";
 		}
 		else if (g >= 5 && g < 7) {
-			cout << g << "\t-> A1" << "\t Incepator functional" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "A1" << left << setw(W3) << "->" << left << setw(W3) << "Incepator Functional" << "\n";
 		}
 		else if (g >= 7 && g < 8.5) {
-			cout << g << "\t-> A1+" << "\t Incepator Preintermediar" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "A1+" << left << setw(W3) << "->" << left << setw(W3) << "Incepator Preintermediar" << "\n";
 		}
 		else if (g >= 8.5 && g < 9.5) {
-			cout << g << "\t->  A1/A2" << "\t Incepator Intermediar" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "A1/A2" << left << setw(W3) << "->" << left << setw(W3) << "Incepator Intermediar" << "\n";
 		}
 		else if (g >= 9.5 && g <= 10) {
-			cout << g << "\t-> A2" << "\t Incepator Avansat" << endl; // incheie verificare notelor valide
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "A2" << left << setw(W3) << "->" << left << setw(W3) << "Incepator Avansat" << "\n";
+		 // incheie verificare notelor valide
 		}
 	}
 	void ProcessMiddleSchool() {
@@ -117,86 +126,110 @@ int main() {
 		}
 	}
 	void convertMiddleL1(double g) {
+		const int(W1) = 10; // constanta pentru alinierea textului in consola
+		const int(W2) = 10;	// constanta pentru alinierea textului in consola
+		const int(W3) = 10;	// constanta pentru alinierea textului in consola	
+
+		cout << "\n ============ Primary School Grading =================\n";
+		cout << " " << left << setw(W1) << "Nota" << left << setw(W2) << "->" << left << setw(W2) << "CEFR" << left << setw(W3) << "->" << left << setw(W3) << "Interpretare" << "\n";
+		cout << " =====================================================\n";
+
 		// nota elevului de gimnaziu care studiaza limba 1 este echivalata cu un calificativ CEFR 
 		if (g >= 1 && g < 3) {
-			cout << g << "\t-> Below A1" << "\t Nivel insuficient" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "Below A1" << left << setw(W3) << "->" << left << setw(W3) << "Insuficient" << "\n";
 		}
 		else if (g >= 3 && g < 4) {
-			cout << g << "\t-> A1-" << "\t Sub nivel" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "A1-" << left << setw(W3) << "->" << left << setw(W3) << "Sub Nivel" << "\n";
 		}
 		else if (g >= 4 && g < 5) {
-			cout << g << "\t-> A1" << "\t Elementar" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "A1" << left << setw(W3) << "->" << left << setw(W3) << "Elementar" << "\n";
 		}
 		else if (g >= 5 && g < 6) {
-			cout << g << "\t-> A1+" << "\t Consolidat" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "A1+" << left << setw(W3) << "->" << left << setw(W3) << "Consolidat" << "\n";
 		}
 		else if (g >= 6 && g < 7) {
-			cout << g << "\t-> A1/A2" << "\t Preliminar" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "A1/A2" << left << setw(W3) << "->" << left << setw(W3) << "Preliminar" << "\n";	
 		}
 		else if (g >= 7 && g < 7.5) {
-			cout << g << "\t-> A2-" << "\t Pre-intermediar" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "A2-" << left << setw(W3) << "->" << left << setw(W3) << "Pre-intermediar" << "\n";
 		}
 		else if (g >= 7.5 && g < 8.5) {
-			cout << g << "\t-> A2" << "\t Consolidat"  << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "A2" << left << setw(W3) << "->" << left << setw(W3) << "Consolidat" << "\n";
 		}
 		else if (g >= 8.5 && g < 9.5) {
-			cout << g << "\t-> A2+" << "\t Avansat" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "A2+" << left << setw(W3) << "->" << left << setw(W3) << "Avansat" << "\n";
 		}
 		else if (g >= 9.5 && g <= 10) {
-			cout << g << "\t-> B1-" << "\t Pre-intermediar" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "B1-" << left << setw(W3) << "->" << left << setw(W3) << "Pre-intermediar" << "\n";
 		}
 	}
 	void convertMiddleL2(double g) {
+		const int(W1) = 10; // constanta pentru alinierea textului in consola
+		const int(W2) = 10;	// constanta pentru alinierea textului in consola
+		const int(W3) = 10;	// constanta pentru alinierea textului in consola	
+
+		cout << "\n ============ Primary School Grading =================\n";
+		cout << " " << left << setw(W1) << "Nota" << left << setw(W2) << "->" << left << setw(W2) << "CEFR" << left << setw(W3) << "->" << left << setw(W3) << "Interpretare" << "\n";
+		cout << " =====================================================\n";
+
 		// nota elevului de gimnaziu care studiaza limba 2 este echivalata cu un calificativ CEFR si o interpreteaza
 		if (g >= 1 && g < 3) {
-			cout << g << "\t-> Below A1" << "\t Nivel insuficient" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "Below A1" << left << setw(W3) << "->" << left << setw(W3) << "Insuficient" << "\n";
 		}
 		else if (g >= 3 && g < 5) {
-			cout << g << "\t-> A1-/A1" << "\t Elementar" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "A1" << left << setw(W3) << "->" << left << setw(W3) << "Elementar" << "\n";
 		}
 		else if (g >= 5 && g < 6) {
-			cout << g << "\t-> A1+" << "\t Functional" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "A1+" << left << setw(W3) << "->" << left << setw(W3) << "Functional" << "\n";
 		}
 		else if (g >= 6 && g < 7) {
-			cout << g << "\t-> A1/A2" << "\t Preliminar" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "A1/A2" << left << setw(W3) << "->" << left << setw(W3) << "Preliminar" << "\n";
 		}
 		else if (g >= 7 && g < 8) {
-			cout << g << "\t-> A2" << "\t Consolidat" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "A2" << left << setw(W3) << "->" << left << setw(W3) << "Consolidat" << "\n";
 		}
 		else if (g >= 8 && g < 9.5) {
-			cout << g << "\t-> A2" << "\t Avansat" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "A2+" << left << setw(W3) << "->" << left << setw(W3) << "Avansat" << "\n";
 		}
 		else if (g >= 9.5 && g <= 10) {
-			cout << g << "\t-> B1-" << "\t Elementar" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "B1-" << left << setw(W3) << "->" << left << setw(W3) << "Elementar" << "\n";
 		}
 	}
 	void ProcessHighSchool(double g) {
+		const int(W1) = 10; // constanta pentru alinierea textului in consola
+		const int(W2) = 10;	// constanta pentru alinierea textului in consola
+		const int(W3) = 10;	// constanta pentru alinierea textului in consola	
+
+		cout << "\n ============ Primary School Grading =================\n";
+		cout << " " << left << setw(W1) << "Nota" << left << setw(W2) << "->" << left << setw(W2) << "CEFR" << left << setw(W3) << "->" << left << setw(W3) << "Interpretare" << "\n";
+		cout << " =====================================================\n";
+
 		if (g >= 1 && g < 3) { //functiile ulterioare echivaleaza nota intr-un calificativ CEFR si o interpreteaza
-			cout << g << "\t-> Below A1" << "\t Nivel insuficient" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "Below A1" << left << setw(W3) << "->" << left << setw(W3) << "Insuficient" << "\n";
 		}
 		else if (g >= 3 && g < 4) {
-			cout << g << "\t-> A1" << "\t Elementar" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "A1" << left << setw(W3) << "->" << left << setw(W3) << "Elementar" << "\n";
 		}
 		else if (g >= 4 && g < 5) {
-			cout << g << "\t-> A1+" << "\tPreliminar" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "A1+" << left << setw(W3) << "->" << left << setw(W3) << "Preliminar" << "\n";
 		}
 		else if (g >= 5 && g < 6) {
-			cout << g << "\t-> A2" << "\t Functional" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "A2" << left << setw(W3) << "->" << left << setw(W3) << "Functional" << "\n";
 		}
 		else if (g >= 6 && g < 7) {
-			cout << g << "\t->A2+" << "\t Consolidat" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "A2+" << left << setw(W3) << "->" << left << setw(W3) << "Consolidat" << "\n";
 		}
 		else if (g >= 7 && g < 8) {
-			cout << g << "\t-> B1-" << "\t Pre-intermediar" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "B1-" << left << setw(W3) << "->" << left << setw(W3) << "Pre-intermediar" << "\n";
 		}
 		else if (g >= 8 && g < 8.7) {
-			cout << g << "\t-> B1" << "\t Intermediar" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "B1" << left << setw(W3) << "->" << left << setw(W3) << "Intermediar" << "\n";
 		}
 		else if (g >= 8.7 && g < 9.5) {
-			cout << g << "\t-> B1+" << "\t Independent" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "B1+" << left << setw(W3) << "->" << left << setw(W3) << "Independent" << "\n";
 		}
 		else if (g >= 9.5 && g <= 10) {
-			cout << g << "\t-> B2" << "\t Avansat" << endl;
+			cout << " " << left << setw(W1) << g << left << setw(W2) << "->" << left << setw(W2) << "B2" << left << setw(W3) << "->" << left << setw(W3) << "Avansat" << "\n";
 		}
 	}
 
